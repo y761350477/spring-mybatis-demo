@@ -22,7 +22,12 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="datasource"></property>
-		<property name="mapperLocations" value="classpath:mapper/UserDao.xml"></property>
+		<property name="mapperLocations" value="classpath:mapper/ClassMapper.xml"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- 扫描entity包  使用别名
+            org.seckill.entity.Seckill===>Seckill  resultType,parameterType
+        -->
+		<property name="typeAliasesPackage" value="entity"/>
 	</bean>
 
 	<bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
